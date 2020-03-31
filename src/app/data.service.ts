@@ -19,29 +19,6 @@ export class DataService {
     return this.getDataSet<Person>(url);
   }
 
-  getPeopleNames(): Observable<string[]> {
-    return null;
-  }
-
-  getPlanets(): Observable<Planet[]> {
-    const url = `${this.baseUrl}/planets`;
-    return this.getDataSet<Planet>(url);
-  }
-
-  getStarships(): Observable<Starship[]> {
-    const url = `${this.baseUrl}/starships`;
-    return this.getDataSet<Starship>(url);
-  }
-
-  getFilms(): Observable<Film[]> {
-    const url = `${this.baseUrl}/films`;
-    return this.getDataSet<Film>(url);
-  }
-
-  getData<T>(url: string): Observable<T> {
-    return this.http.get<any>(url);
-  }
-
   private getDataSet<T>(url: string): Observable<T[]> {
     return this.http.get<any>(url).pipe(
       timeout(1000),
